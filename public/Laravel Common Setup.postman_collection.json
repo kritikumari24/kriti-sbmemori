@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "d37b119a-1c77-47e1-a532-4c3cbfe2a371",
+		"name": "Laravel Common Setup",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Manager",
+			"item": [
+				{
+					"name": "Manager Test Api(Get)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local_common_setup_url}}/manager/test",
+							"host": [
+								"{{local_common_setup_url}}"
+							],
+							"path": [
+								"manager",
+								"test"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Customer Test Api(Get)",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local_common_setup_url}}/customer/test",
+							"host": [
+								"{{local_common_setup_url}}"
+							],
+							"path": [
+								"customer",
+								"test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "authMobileCheck",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "mobile_no",
+									"value": "5263214599",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local_common_setup_url}}/customer/login",
+							"host": [
+								"{{local_common_setup_url}}"
+							],
+							"path": [
+								"customer",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "authWithOtp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "mobile_no",
+									"value": "5263214599",
+									"type": "text"
+								},
+								{
+									"key": "otp",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local_common_setup_url}}/customer/login-otp",
+							"host": [
+								"{{local_common_setup_url}}"
+							],
+							"path": [
+								"customer",
+								"login-otp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{customer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "mobile_no",
+									"value": "5263214599",
+									"type": "text"
+								},
+								{
+									"key": "otp",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local_common_setup_url}}/customer/logout",
+							"host": [
+								"{{local_common_setup_url}}"
+							],
+							"path": [
+								"customer",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
