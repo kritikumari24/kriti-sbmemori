@@ -20,4 +20,4 @@
         </script>
     <?php endif; ?>
 <?php $__env->stopPush(); ?>
-<?php /**PATH D:\Herd\sbmemori\resources\views/admin/layouts/partials/flash.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\Herd\kriti-sbmemori\resources\views/admin/layouts/partials/flash.blade.php ENDPATH**/ ?>

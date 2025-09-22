@@ -1,0 +1,238 @@
+/* App CSS - Fallback styles for when Bootstrap CDN fails */
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.container-fluid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.card-header {
+    padding: 0.75rem 1.25rem;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid #dee2e6;
+    border-radius: 0.375rem 0.375rem 0 0;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.375rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+
+.btn-link {
+    font-weight: 400;
+    color: #0d6efd;
+    text-decoration: underline;
+    background-color: transparent;
+    border: 0;
+}
+
+.navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+}
+
+.navbar-light {
+    background-color: #f8f9fa !important;
+}
+
+.shadow-sm {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+.py-4 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -0.75rem;
+    margin-left: -0.75rem;
+}
+
+.col-md-8 {
+    flex: 0 0 auto;
+    width: 66.66666667%;
+}
+
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.mb-3 {
+    margin-bottom: 1rem !important;
+}
+
+.text-md-end {
+    text-align: right !important;
+}
+
+.col-form-label {
+    padding-top: calc(0.375rem + 1px);
+    padding-bottom: calc(0.375rem + 1px);
+    margin-bottom: 0;
+    font-size: inherit;
+    line-height: 1.5;
+}
+
+.col-md-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+}
+
+.col-md-6 {
+    flex: 0 0 auto;
+    width: 50%;
+}
+
+.offset-md-4 {
+    margin-left: 33.33333333%;
+}
+
+.form-check {
+    display: block;
+    min-height: 1.5rem;
+    padding-left: 1.5em;
+    margin-bottom: 0.125rem;
+}
+
+.form-check-input {
+    width: 1em;
+    height: 1em;
+    margin-top: 0.25em;
+    vertical-align: top;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    appearance: none;
+    color-adjust: exact;
+}
+
+.invalid-feedback {
+    display: none;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: #dc3545;
+}
+
+.is-invalid ~ .invalid-feedback {
+    display: block;
+}
+
+.d-none {
+    display: none !important;
+}
+
+/* Responsive utilities */
+.h-100 { height: 100% !important; }
+.flex-grow-1 { flex-grow: 1 !important; }
+.mt-auto { margin-top: auto !important; }
+.g-3 { gap: 1rem !important; }
+.shadow { box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important; }
+.btn-lg { padding: 0.5rem 1rem; font-size: 1.25rem; border-radius: 0.5rem; }
+.d-grid { display: grid !important; }
+.gap-2 { gap: 0.5rem !important; }
+
+@media (max-width: 575.98px) {
+    .container-fluid { padding-left: 1rem; padding-right: 1rem; }
+    .card-body { padding: 1rem; }
+    .py-3 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+}
+
+@media (min-width: 576px) {
+    .col-sm-6 { flex: 0 0 auto; width: 50%; }
+    .col-sm-10 { flex: 0 0 auto; width: 83.33333333%; }
+}
+
+@media (min-width: 768px) {
+    .col-md-4 { flex: 0 0 auto; width: 33.33333333%; }
+    .col-md-6 { flex: 0 0 auto; width: 50%; }
+    .col-md-8 { flex: 0 0 auto; width: 66.66666667%; }
+    .offset-md-4 { margin-left: 33.33333333%; }
+    .text-md-end { text-align: right !important; }
+    .py-md-4 { padding-top: 1.5rem !important; padding-bottom: 1.5rem !important; }
+    .d-md-block { display: block !important; }
+}
+
+@media (min-width: 992px) {
+    .col-lg-4 { flex: 0 0 auto; width: 33.33333333%; }
+    .col-lg-6 { flex: 0 0 auto; width: 50%; }
+    .col-lg-10 { flex: 0 0 auto; width: 83.33333333%; }
+    .d-lg-block { display: block !important; }
+    .d-lg-none { display: none !important; }
+}
+
+@media (min-width: 1200px) {
+    .col-xl-5 { flex: 0 0 auto; width: 41.66666667%; }
+}
+
+.navbar-toggler { padding: 0.25rem 0.5rem; font-size: 1rem; background-color: transparent; border: 1px solid transparent; border-radius: 0.375rem; }
+.navbar-collapse { flex-basis: 100%; flex-grow: 1; align-items: center; }
+
+@media (max-width: 991.98px) {
+    .navbar-collapse { margin-top: 0.5rem; }
+    .navbar-nav { flex-direction: column; }
+    .navbar-text { padding: 0.5rem 0; }
+}

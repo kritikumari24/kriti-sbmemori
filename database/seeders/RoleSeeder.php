@@ -21,8 +21,8 @@ class RoleSeeder extends Seeder
 
         $roles = [
             ['name' => 'Admin', 'guard_name' => 'web', 'created_at' => Carbon::now()],
-            ['name' => 'Manager', 'guard_name' => 'web', 'created_at' => Carbon::now()],
-            ['name' => 'Customer', 'guard_name' => 'web', 'created_at' => Carbon::now()],
+            ['name' => 'Staff', 'guard_name' => 'web', 'created_at' => Carbon::now()],
+            ['name' => 'Parents', 'guard_name' => 'web', 'created_at' => Carbon::now()],
         ];
 
         if (!Role::count()) {

@@ -27,12 +27,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Auth::routes();
+Auth::routes();
 
-// Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/', function () {
-    return redirect()->route('admin.dashboard');
-});
+Route::get('/home', [\App\Http\Controllers\Auth\RoleRedirectController::class, 'redirectBasedOnRole'])->name('home');
+Route::get('/', [\App\Http\Controllers\Auth\RoleRedirectController::class, 'redirectBasedOnRole'])->middleware('auth');
 
 Route::get('/admin/test', 'TestController@test');
 
@@ -137,6 +135,39 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
             Route::get('/contact-us/status/{id}/{status}', 'status')->name('contact-us.status');
         });
         Route::resource('/contact-us', ContactUsController::class);
+
+        //Role Management
+        Route::controller(\App\Http\Controllers\Admin\RoleManagementController::class)->group(function () {
+            Route::post('/users/{user}/assign-role', 'assignRole')->name('users.assign-role');
+            Route::get('/users/by-role/{role}', 'getUsersByRole')->name('users.by-role');
+        });
+    });
+});
+
+// Staff Routes
+Route::group(['prefix' => 'staff', 'as' => 'staff.'], function () {
+    Route::get('/login', function () {
+        return redirect()->route('login')->with('info', 'Please login with your staff credentials.');
+    });
+    
+    Route::group(['middleware' => ['auth', 'staff.auth']], function () {
+        Route::get('/dashboard', [\App\Http\Controllers\Staff\DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/students', [\App\Http\Controllers\Staff\StudentController::class, 'index'])->name('students.index');
+        Route::get('/students/{id}', [\App\Http\Controllers\Staff\StudentController::class, 'show'])->name('students.show');
+    });
+});
+
+// Parents Routes
+Route::group(['prefix' => 'parents', 'as' => 'parents.'], function () {
+    Route::get('/login', function () {
+        return redirect()->route('login')->with('info', 'Please login with your parent credentials.');
+    });
+    
+    Route::group(['middleware' => ['auth', 'parents.auth']], function () {
+        Route::get('/dashboard', [\App\Http\Controllers\Parents\DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/profile', [\App\Http\Controllers\Parents\ProfileController::class, 'index'])->name('profile.index');
+        Route::get('/profile/edit', [\App\Http\Controllers\Parents\ProfileController::class, 'edit'])->name('profile.edit');
+        Route::put('/profile', [\App\Http\Controllers\Parents\ProfileController::class, 'update'])->name('profile.update');
     });
 });
 

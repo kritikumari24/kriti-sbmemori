@@ -164,7 +164,7 @@ class SettingSeeder extends Seeder
         ];
 
         foreach ($data as $value) {
-            Setting::create($value);
+            Setting::firstOrCreate(['slug' => $value['slug']], $value);
         }
     }
 }

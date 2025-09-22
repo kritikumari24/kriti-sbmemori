@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title><?php echo e(config('app.name', 'Laravel')); ?></title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -18,19 +18,20 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Fallback Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
 </head>
 
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container-fluid px-3">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class="navbar-brand" href="<?php echo e(url('/')); ?>">
+                    <?php echo e(config('app.name', 'Laravel')); ?>
+
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    aria-expanded="false" aria-label="<?php echo e(__('Toggle navigation')); ?>">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -43,38 +44,40 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
+                        <?php if(auth()->guard()->guest()): ?>
+                            <?php if(Route::has('login')): ?>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="<?php echo e(route('login')); ?>"><?php echo e(__('Login')); ?></a>
                                 </li>
-                            @endif
+                            <?php endif; ?>
 
-                            @if (Route::has('register'))
+                            <?php if(Route::has('register')): ?>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="<?php echo e(route('register')); ?>"><?php echo e(__('Register')); ?></a>
                                 </li>
-                            @endif
-                        @else
+                            <?php endif; ?>
+                        <?php else: ?>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                    <?php echo e(Auth::user()->name); ?>
+
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
                                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        <?php echo e(__('Logout')); ?>
+
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
+                                    <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" class="d-none">
+                                        <?php echo csrf_field(); ?>
                                     </form>
                                 </div>
                             </li>
-                        @endguest
+                        <?php endif; ?>
                     </ul>
                 </div>
             </div>
@@ -82,7 +85,7 @@
 
         <main class="py-3 py-md-4">
             <div class="container-fluid px-3">
-                @yield('content')
+                <?php echo $__env->yieldContent('content'); ?>
             </div>
         </main>
     </div>
@@ -90,7 +93,8 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Fallback Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="<?php echo e(asset('js/app.js')); ?>"></script>
 </body>
 
 </html>
+<?php /**PATH D:\Herd\kriti-sbmemori\resources\views/layouts/app.blade.php ENDPATH**/ ?>

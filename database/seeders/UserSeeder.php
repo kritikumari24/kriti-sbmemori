@@ -15,17 +15,16 @@ class UserSeeder extends Seeder
      * @return void
      */
     public function run()
-    
     {
-        $data =  [
-            'name'=>'Admin',
-            'email'=>'admin@gmail.com',
-            'mobile_no'=>'8078602432',
-            'lang'=>'en',
-            'is_active'=>'1',
-            'password'=> Hash::make('123456'),
-            'created_at'=> Carbon::now()
+        $data = [
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'mobile_no' => '8078602432',
+            'lang' => 'en',
+            'is_active' => '1',
+            'password' => Hash::make('123456'),
+            'created_at' => Carbon::now()
         ];
-        User::create($data);
+        User::firstOrCreate(['email' => $data['email']], $data);
     }
 }

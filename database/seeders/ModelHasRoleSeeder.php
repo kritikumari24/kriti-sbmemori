@@ -14,7 +14,17 @@ class ModelHasRoleSeeder extends Seeder
      */
     public function run()
     {
-        $model_has_role =  ['role_id'=>'1','model_type'=>'App\\Models\\User','model_id'=>'1'];
-        $insert = DB::table('model_has_roles')->insert($model_has_role );
+        $model_has_role = ['role_id' => '1', 'model_type' => 'App\\Models\\User', 'model_id' => '1'];
+        
+        // Check if the role assignment already exists
+        $exists = DB::table('model_has_roles')
+            ->where('role_id', $model_has_role['role_id'])
+            ->where('model_type', $model_has_role['model_type'])
+            ->where('model_id', $model_has_role['model_id'])
+            ->exists();
+            
+        if (!$exists) {
+            DB::table('model_has_roles')->insert($model_has_role);
+        }
     }
 }

@@ -46,4 +46,4 @@
 <!--end::Body-->
 
 </html>
-<?php /**PATH D:\Herd\sbmemori\resources\views/admin/layouts/app.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\Herd\kriti-sbmemori\resources\views/admin/layouts/app.blade.php ENDPATH**/ ?>

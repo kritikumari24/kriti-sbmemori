@@ -35,6 +35,30 @@ class User extends Authenticatable implements JWTSubject, AuthorizableContract
     ];
 
     /**
+     * Check if user is admin
+     */
+    public function isAdmin()
+    {
+        return $this->hasRole('Admin');
+    }
+
+    /**
+     * Check if user is staff
+     */
+    public function isStaff()
+    {
+        return $this->hasRole('Staff');
+    }
+
+    /**
+     * Check if user is parent
+     */
+    public function isParent()
+    {
+        return $this->hasRole('Parents');
+    }
+
+    /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>

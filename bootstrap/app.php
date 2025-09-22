@@ -21,6 +21,8 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'admin.guest' => \App\Http\Middleware\AdminRedirect::class,
             'admin.auth' => \App\Http\Middleware\AdminAuthenticate::class,
+            'staff.auth' => \App\Http\Middleware\StaffAuthenticate::class,
+            'parents.auth' => \App\Http\Middleware\ParentsAuthenticate::class,
             'can' => \Illuminate\Auth\Middleware\Authorize::class,
             'log.requests' => \App\Http\Middleware\LogAfterRequestMiddleware::class,
             'role' => \Spatie\Permission\Middleware\RoleMiddleware::class,
